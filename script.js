@@ -1,34 +1,31 @@
 const form = document.getElementById("product-form");
 const productList = document.getElementById("product-list");
 
-form.addEventListener("submit", function (event) {
-    event.preventDefault();
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
 
-    const name = document.getElementById("name").value;
-    const price = document.getElementById("price").value;
+  const name = document.getElementById("name").value;
+  const price = document.getElementById("price").value;
 
-    if (name === "" || price === "") return;
+  if (name === "" || price === "") return;
 
-    const row = document.createElement("tr");
+  // CRIA O CARD
+  const card = document.createElement("div");
+  card.classList.add("product-card");
 
-    const tdProduto = document.createElement("td");
-    tdProduto.textContent = name;
+  card.innerHTML = `
+    <h3>${name}</h3>
+    <p><strong>Preço:</strong> R$ ${Number(price).toFixed(2)}</p>
+    <p><strong>Quantidade:</strong> 1</p>
+    <button class="remove-btn">Remover</button>
+  `;
 
-    const tdDescricao = document.createElement("td");
-    tdDescricao.textContent = "-";
+  // BOTÃO REMOVER
+  card.querySelector(".remove-btn").addEventListener("click", () => {
+    card.remove();
+  });
 
-    const tdPreco = document.createElement("td");
-    tdPreco.textContent = `R$ ${Number(price).toFixed(2)}`;
+  productList.appendChild(card);
 
-    const tdQuantidade = document.createElement("td");
-    tdQuantidade.textContent = "1";
-
-    row.appendChild(tdProduto);
-    row.appendChild(tdDescricao);
-    row.appendChild(tdPreco);
-    row.appendChild(tdQuantidade);
-
-    productList.appendChild(row);
-
-    form.reset();
+  form.reset();
 });
