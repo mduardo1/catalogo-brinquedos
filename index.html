@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' media='screen' href='stylo.css'>
+    <title>Cadastrar Produto</title>
+</head>
+<body>
+    <header>
+    <h1>Cadastro de Produtos</h1>
+    </header>
+    
+    <main>
+        <section class="form">
+            <h2>Adicionar Novo Produto</h2>
+            <form id="product-form">
+                <label for="name">Nome
+                <input type="text" id="name" placeholder="Digite o nome do produto" required>
+            </form>
+            <label for="price">Preço</label>
+            <input type="number" id="price" name="price" placeholder="Digite um valor para o produto em (R$) " step="000.0"  required>
+            <button type="submit">Adicionar</button>
+        </section>
+        <br>
+        <br>
+        <section class="table-section">
+            <h2>Lista de Produtos</h2>
+            <table>
+                <thead class="lista"></thead>
+                    <tr> 
+                        <th>Produto</th>
+                        <th>Descrição</th>
+                        <th>Preço</th>
+                        <th>Quantidade</th>
+                    </tr>
+                </thead>
+            </table>                        
+            <button id="remove-all-btn">Remover Produto</button>
+        </section>
+    </main>
+</body>
+</html>
